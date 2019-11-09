@@ -26,6 +26,8 @@ import { Ionicons } from '@expo/vector-icons';
 
 import { DataTable } from 'react-native-paper';
 
+import Product from '../../components/product/product';
+
 import api from '../../services/api';
 
 
@@ -128,7 +130,7 @@ export default SearchProduct = ({ navigation }) => {
                                 <Spinner color='blue' />
                             )}
 
-                            {!loading && madeRequest && products.length === 0
+                            {/* {!loading && madeRequest && products.length === 0
                                 ? <Text style={styles.empty}>Nenhum produto encontrado</Text>
                                 : (
                                     <List>
@@ -151,6 +153,20 @@ export default SearchProduct = ({ navigation }) => {
                                             ))
                                         }
                                     </List>
+                                    
+                                )
+                            } */}
+
+                            {!loading && madeRequest && products.length === 0
+                                ? <Text style={styles.empty}>Nenhum produto encontrado</Text>
+                                : (
+                                    <Container>
+                                        {
+                                            products.map((product, index) => (
+                                                <Product product={product} />
+                                            ))
+                                        }
+                                    </Container>
                                     
                                 )
                             }
