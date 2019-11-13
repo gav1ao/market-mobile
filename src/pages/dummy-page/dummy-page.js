@@ -12,8 +12,8 @@ export default DummyPage = ({ navigation }) => {
     useEffect(() => {
         componentDidMount = async () => {
             await Font.loadAsync({
-                Roboto: require('../../../assets/fonts/Roboto-Regular.ttf'),
-                Roboto_medium: require('../../../assets/fonts/Roboto-Medium.ttf'),
+                Roboto: require('../../assets/fonts/Roboto-Regular.ttf'),
+                Roboto_medium: require('../../assets/fonts/Roboto-Medium.ttf'),
             ...Ionicons.font,
             });
 
