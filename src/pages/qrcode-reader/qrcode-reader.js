@@ -98,6 +98,14 @@ export default function QRCodeReader({ navigation }) {
         }
     }
 
+    const resetToAddAnother = () => {
+        setMadeRequest(false);
+        setScannedUrl('');
+        setStatus('');
+        setScanned(false);
+        setLoading(false);
+    }
+
     useEffect (() => {
         getPermissionsAsync = async () => {
             const { status } = await Permissions.askAsync(Permissions.CAMERA);
@@ -202,7 +210,8 @@ export default function QRCodeReader({ navigation }) {
                                         <Button
                                             style={styles.button}
                                             primary
-                                            onPress={() => setScanned(false)}
+                                            onPress={() => resetToAddAnother()}
+                                            disabled={loading}
                                         >
                                             <Text
                                                 style={styles.textButton}

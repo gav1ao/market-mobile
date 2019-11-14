@@ -158,7 +158,7 @@ export default SearchProduct = ({ navigation }) => {
                             } */}
 
                             {!loading && madeRequest && products.length === 0
-                                ? <Text style={styles.empty}>Nenhum produto encontrado</Text>
+                                ? <Text>Nenhum produto encontrado</Text>
                                 : (
                                     <Container>
                                         {
