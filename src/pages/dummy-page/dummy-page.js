@@ -47,6 +47,10 @@ export default DummyPage = ({ navigation }) => {
                     <Button onPress={() => navigation.navigate('SearchProduct')}>
                         <Text>Buscar produtos</Text>
                     </Button>
+
+                    <Button onPress={() => navigation.navigate('Home')}>
+                        <Text>HomePage</Text>
+                    </Button>
                 </Body>
             </Container>
         );

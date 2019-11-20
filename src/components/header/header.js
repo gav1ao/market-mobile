@@ -21,15 +21,23 @@ export default function HeaderAPP ( props ) {
 
     return (
         <Header>
-            <Left>
-                <Button
-                    transparent
-                    onPress={() => onClickButton()}
-                >
-                    <Icon name='arrow-back' />
-                </Button>
-            </Left>
-            <Body style={styles.body}>
+            {props.header.backFunction && (
+                <Left>
+                    <Button
+                        transparent
+                        onPress={() => onClickButton()}
+                    >
+                        <Icon name='arrow-back' />
+                    </Button>
+                </Left>
+            )}
+            
+            <Body
+                style={[
+                    styles.body,
+                    props.header.backFunction && styles.withBackFunction
+                ]}
+            >
                 <Title>{props.header.title}</Title>
 
                 {props.header.subtitle && (
@@ -45,6 +53,9 @@ const styles = StyleSheet.create({
     body: {
         justifyContent: 'center',
         alignItems: 'center',
+    },
+
+    withBackFunction: {
         marginLeft: -100,
     }
 })

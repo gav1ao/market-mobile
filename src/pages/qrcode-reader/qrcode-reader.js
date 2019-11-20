@@ -118,7 +118,7 @@ export default function QRCodeReader({ navigation }) {
     const header = {
         title: 'CADASTRAR NOTA FISCAL',
         subtitle: 'Via QRCode',
-        backFunction: () => navigation.navigate('DummyPage')
+        backFunction: () => navigation.navigate('Home')
     }
 
     if (!isReady) {
@@ -223,7 +223,7 @@ export default function QRCodeReader({ navigation }) {
                                         <Button
                                             style={styles.button}
                                             warning
-                                            onPress={() => navigation.navigate('DummyPage')}
+                                            onPress={() => navigation.navigate('Home')}
                                         >
                                             <Text
                                                 style={styles.textButton}

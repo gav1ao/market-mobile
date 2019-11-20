@@ -87,7 +87,7 @@ export default SearchProduct = ({ navigation }) => {
 
     const header = {
         title: 'BUSCAR PRODUTOS',
-        backFunction: () => navigation.navigate('DummyPage')
+        backFunction: () => navigation.navigate('Home')
     }
 
     if (!isReady) {

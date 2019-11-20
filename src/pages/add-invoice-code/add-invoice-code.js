@@ -180,7 +180,7 @@ export default DummyPage = ({ navigation }) => {
                             >
                                 <Button
                                     warning
-                                    onPress={() => navigation.navigate('DummyPage')}
+                                    onPress={() => navigation.navigate('Home')}
                                 >
                                     <Text>Voltar</Text>
                                 </Button>
