@@ -7,9 +7,9 @@ import SearchProduct from './pages/search-product/search-product';
 
 export default createAppContainer (
     createSwitchNavigator({
-        SearchProduct,
-        AddInvoiceCode,
         DummyPage,
-        QRCodeReader
+        SearchProduct,
+        QRCodeReader,
+        AddInvoiceCode,
     })
 );

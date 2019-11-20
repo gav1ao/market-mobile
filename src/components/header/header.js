@@ -31,7 +31,11 @@ export default function HeaderAPP ( props ) {
             </Left>
             <Body style={styles.body}>
                 <Title>{props.header.title}</Title>
-                <Subtitle>{props.header.subtitle}</Subtitle>
+
+                {props.header.subtitle && (
+                    <Subtitle>{props.header.subtitle}</Subtitle>
+                )}
+                
             </Body>
         </Header>
     );

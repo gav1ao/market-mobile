@@ -1,22 +1,55 @@
 import React, { useState, useEffect } from 'react'
-import { StyleSheet, Image, Text } from 'react-native'
+import { StyleSheet, Image, Text, TouchableOpacity } from 'react-native'
 
 import { Container } from 'native-base';
 
+import ProductOverlay from '../../components/product/productsOverlay';
+
 export default Product = (props) => {
 
-    return (
-        <Container style={styles.container}>
-            <Container style={styles.text}>
-                <Text style={styles.name}>{props.product.name}</Text>
-                <Text>{props.product.marketName}</Text>
-            </Container>
+    const [showOverlay, setShowOverlay] = useState(false);
 
-            <Container style={styles.info}>
-                <Text style={styles.price}>R$ {props.product.price}</Text>
-                <Text style={styles.purchaseDate}>{props.product.purchaseDate || ''}</Text>
+    const handleOnPressProduct = () => {
+        setShowOverlay(true);
+    }
+
+    const handleOnBackdropPress = () => {
+        setShowOverlay(false);
+    }
+
+    return (
+        <TouchableOpacity
+            onPress={handleOnPressProduct}
+        >
+            
+            <ProductOverlay
+                visible={showOverlay || false}
+                product={props.product}
+                handleOnBackdropPress={handleOnBackdropPress}
+            />
+
+            <Container style={styles.container}>
+                <Container style={styles.text}>
+                    <Text
+                        style={styles.name}
+                        numberOfLines={1}
+                    >
+                        {props.product.name}
+                    </Text>
+
+                    <Text
+                        numberOfLines={2}
+                    >
+                        {props.product.marketName}
+                    </Text>
+                </Container>
+
+                <Container style={styles.info}>
+                    <Text style={styles.price}>R$ {props.product.price}</Text>
+                    <Text style={styles.purchaseDate}>{props.product.purchaseDate || ''}</Text>
+                </Container>
             </Container>
-        </Container>
+        </TouchableOpacity>
     );
 }
 
@@ -39,9 +72,9 @@ const styles = StyleSheet.create({
         shadowRadius: 2.22,
         elevation: 3,
 
-        width: '90%',
-        height: '10%',
+        height: 70,
         padding: 5,
+        margin: 7,
         justifyContent: 'space-between',
         alignContent: 'space-between',
     },
@@ -53,13 +86,13 @@ const styles = StyleSheet.create({
     name: {
         fontSize: 17,
         fontWeight: 'bold',
-        fontFamily: 'Roboto'
+        fontFamily: 'Roboto',
     },
 
     text: {
         flex: 0,
-        flexWrap: 'wrap',
-        width: '60%',
+        flexWrap: 'nowrap',
+        width: '65%',
         height: '100%',
         flexDirection: 'column',
         alignItems: 'flex-start',
@@ -68,7 +101,8 @@ const styles = StyleSheet.create({
 
     info: {
         flex: 0,
-        width: '40%',
+        flexWrap: 'nowrap',
+        width: '35%',
         height: '100%',
         flexDirection: 'column',
         alignItems: 'flex-end',
