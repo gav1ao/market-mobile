@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 
 import { Container, Text } from 'native-base';
@@ -11,6 +11,10 @@ import { Ionicons } from '@expo/vector-icons';
 import Header from '../../components/header/header';
 
 import Button from '../../components/button/button';
+
+if (Platform.OS === 'android') {
+    SafeAreaView.setStatusBarHeight(0);
+}
 
 export default Home = ({navigation}) => {
     const [isReady, setReady] = useState(false);
