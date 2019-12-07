@@ -47,7 +47,9 @@ export default function QRCodeReader({ navigation }) {
         setScanned(true);
         console.log(data);
         setScannedUrl(data);
-        Vibration.vibrate();
+
+        // FIXME: Desabilitado pois causava bugs em dispositivos Samsung
+        // Vibration.vibrate();
 
         await handleRequestAccess(data);
 
