@@ -7,6 +7,8 @@ import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 
+import { formatPrice, formatDate } from '../../util/format';
+
 export default ProductOverlay = (props) => {
 
     const [isReady, setReady] = useState(false);
@@ -69,7 +71,7 @@ export default ProductOverlay = (props) => {
                         <Text
                             style={styles.description}
                         >
-                            R$ {props.product.price}
+                            {formatPrice(props.product.price)}
                         </Text>
                     </View>
 
@@ -84,7 +86,7 @@ export default ProductOverlay = (props) => {
                         <Text
                             style={styles.description}
                         >
-                            {props.product.purchaseDate}
+                            {formatDate(props.product.purchaseDate)}
                         </Text>
                     </View>
 
