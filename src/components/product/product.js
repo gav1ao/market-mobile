@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import { StyleSheet, Image, Text, TouchableOpacity } from 'react-native'
+import React, { useState } from 'react'
+import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 
 import { Container } from 'native-base';
 
 import ProductOverlay from '../../components/product/productsOverlay';
+
+import { formatPrice, formatDate } from '../../util/format';
 
 export default Product = (props) => {
 
@@ -45,8 +47,8 @@ export default Product = (props) => {
                 </Container>
 
                 <Container style={styles.info}>
-                    <Text style={styles.price}>R$ {props.product.price}</Text>
-                    <Text style={styles.purchaseDate}>{props.product.purchaseDate || ''}</Text>
+                    <Text style={styles.price}>{formatPrice(props.product.price)}</Text>
+                    <Text style={styles.purchaseDate}>{formatDate(props.product.purchaseDate) || ''}</Text>
                 </Container>
             </Container>
         </TouchableOpacity>
