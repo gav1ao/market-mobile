@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://gav1ao-market-api.herokuapp.com'
+    baseURL: 'https://market-api-legacy-beta.fly.dev'
 });
 
 export default api;
