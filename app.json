@@ -3,7 +3,6 @@
     "name": "MarketHelper",
     "slug": "market-helper",
     "privacy": "public",
-    "sdkVersion": "35.0.0",
     "platforms": [
       "ios",
       "android",
@@ -39,7 +38,9 @@
     },
     "android": {
       "package": "br.com.gav1ao.markethelper",
-      "permissions": ["CAMERA"]
+      "permissions": [
+        "CAMERA"
+      ]
     }
   }
 }
